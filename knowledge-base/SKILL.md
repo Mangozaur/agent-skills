@@ -11,14 +11,14 @@ This project maintains a living knowledge base. Your job is to **read it before 
 
 ```
 .docs/
+└── adr/
+    ├── <YYYY-MM-DD>-<short-title>.md
+    ├── ...
+    └── outdated/          ← superseded ADRs go here
 └── knowledge/
     ├── README.md              ← map of the entire knowledge base
     ├── <topic>.md             ← one document per topic
     ├── ...
-    └── adr/
-        ├── <YYYY-MM-DD>-<short-title>.md
-        ├── ...
-        └── outdated/          ← superseded ADRs go here
 ```
 
 - `.docs/knowledge/README.md` is the **entry point**. It links to every document. Read it first.
@@ -35,7 +35,7 @@ Concretely, consult before:
 - Answering questions about how the project works ("how does the kanban board behave?", "what's the data model for tasks?")
 - Implementing a feature — read the relevant component, design system, and routing docs
 - Fixing a bug — read the doc for the affected area to understand intended behavior
-- Refactoring — check ADRs in `.docs/knowledge/adr/` for decisions that constrain your options
+- Refactoring — check ADRs in `.docs/adr/` for decisions that constrain your options
 
 If a document is missing for the area you need, that itself is a signal: either the area is undocumented (note it, and consider adding a doc) or the README is out of sync.
 
@@ -82,12 +82,12 @@ Do not let docs drift. If the code says one thing and the doc says another, the 
 
 ## Architecture Decision Records (ADRs)
 
-ADRs live in `.docs/knowledge/adr/` and capture *why* a decision was made, not just *what* the code does.
+ADRs live in `.docs/adr/` and capture *why* a decision was made, not just *what* the code does.
 
 ### Hard rules
 
 - **ADRs are never edited.** Once written, the file stays as it is — it's a historical record.
-- **To change a decision, write a new ADR** that supersedes the old one, then move the old one to `.docs/knowledge/adr/outdated/`. Do not delete it.
+- **To change a decision, write a new ADR** that supersedes the old one, then move the old one to `.docs/adr/outdated/`. Do not delete it.
 - **One decision per ADR.** Keep the scope minimal — a single, narrow concern. If you find yourself writing about two things, split them.
 - **Filename format:** `<YYYY-MM-DD>-<short-meaningful-title>.md` (e.g., `2026-05-10-use-postgres-jsonb-for-task-metadata.md`).
 
@@ -129,7 +129,7 @@ Briefly: what else was on the table, and why not.
 When a previous decision no longer holds:
 
 1. Write a new ADR with today's date that states the new decision and references the old one by filename in its Context section.
-2. `git mv .docs/knowledge/adr/<old-adr>.md .docs/knowledge/adr/outdated/`
+2. `git mv .docs/adr/<old-adr>.md .docs/knowledge/adr/outdated/`
 3. Do not edit the old ADR's content — moving it is enough.
 
 ## Workflow summary
