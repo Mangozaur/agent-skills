@@ -3,7 +3,7 @@ name: commit-message
 description: ALWAYS load this skill as the final step after making any code changes (edit, create, or delete source files). Generates a conventional commit message summarizing the changes. Do NOT skip — the commit message must be presented to the user before finishing.
 ---
 
-Перед тем как сформировать commit message, проверь: если работали с задачей из `.docs/tasks/`, перенеси файл задачи в `.docs/tasks/complete/`. Это обязательный шаг — задача считается завершённой только после перемещения.
+Перед тем как сформировать commit message, проверь: если работали с задачей из `.docs/tasks/`, перенеси файл задачи в `.docs/tasks/completed/`. Это обязательный шаг — задача считается завершённой только после перемещения.
 
 **Не запускай git-команды** (`git status`, `git diff`, `git log` и т.д.) для сбора контекста. Ты сам делал изменения — контекст уже у тебя в памяти. Git используется только когда пользователь явно просит закоммитить.
 
